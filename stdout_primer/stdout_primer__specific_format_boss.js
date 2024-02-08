@@ -21,34 +21,12 @@ reader.on('line', (line) => {
 
 // 入力のストリームが終了すると呼ばれる
 reader.on('close', () => {
-  step01_func();
+  step01();
 });
 
+// 関数プログラミングで実装
 // step01();
 function step01() {
-  // 2 つの文字列を出力 (paizaランク D 相当)
-  // https://paiza.jp/works/mondai/stdout_primer/stdout_primer__specific_format_step1
-
-  let outputString = "";
-
-  for(let i = 0; i < 2; i ++) {
-    if (i > 0 )  {
-        outputString = outputString + ' + ';
-    }    
-    outputString = outputString + lines[i].toString();
-  }
-
-  outputString = outputString + ' = ';
-
-  for(let i = 0; i < 2; i ++) {
-    outputString = outputString + lines[i].toString();
-  }
-  console.log(outputString);
-}
-
-// 関数プログラミングで実装
-// step01-func();
-function step01_func() {
   // 2 つの文字列を出力 (paizaランク D 相当)
   // https://paiza.jp/works/mondai/stdout_primer/stdout_primer__specific_format_step1
 
