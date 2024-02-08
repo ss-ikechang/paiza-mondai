@@ -21,7 +21,7 @@ reader.on('line', (line) => {
 
 // 入力のストリームが終了すると呼ばれる
 reader.on('close', () => {
-  step01();
+  step02();
 });
 
 // 関数プログラミングで実装
@@ -35,5 +35,29 @@ function step01() {
   const outputString3 = lines.join("");
 
   console.log(outputString1 + outputString2 + outputString3);
+}
+
+// step02();
+function step02() {
+  // 文字列と N 個の整数の出力 (paizaランク C 相当)
+  // https://paiza.jp/works/mondai/stdout_primer/stdout_primer__specific_format_step2
+
+  // 入力行の解析
+  const array  = lines[0].split(" ");
+  // 1カラム目取得、データ個数
+  const number = parseInt(array[0], 10);
+  // (A, B)部  
+  // const datasSet = array.toSpliced(0, 1);
+  // 要素の１番目から最後まで抽出
+  const datasSet = array.slice(1);
+  // ( , ) をつける
+  const dataInBrackets = '(' + datasSet.join(", ") + ')';
+
+  // (A, B)のnumber回の繰り返し
+  const arr = [...Array(number)].map(() => dataInBrackets);
+  // ','で区切って結合
+  const outputString = arr.join(", ")
+
+  console.log(outputString);
 }
 
