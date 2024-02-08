@@ -21,7 +21,7 @@ reader.on('line', (line) => {
 
 // 入力のストリームが終了すると呼ばれる
 reader.on('close', () => {
-  step02();
+  step03();
 });
 
 // 関数プログラミングで実装
@@ -61,3 +61,30 @@ function step02() {
   console.log(outputString);
 }
 
+// step03();
+function step03() {
+  // 九九表を罫線入りで出力 (paizaランク C 相当)
+  // https://paiza.jp/works/mondai/stdout_primer/stdout_primer__specific_format_step3
+  let numStrArray = [];
+  let outputString = "";
+  let outputStringArray = [];
+
+  for (let x = 0;x < 9; x++) {
+    const progressionFunc = function(element, index) {
+        return ((index + 1) * (x + 1)).toString(10);
+    }
+    // x の段の等比数列、文字列配列で生成
+    numStrArray = [...Array(9)].map(progressionFunc);
+    // 各数値文字列２桁で空白パディングし、|区切り文字で区切って連結する
+    outputString = numStrArray.map((numStr) => numStr.padStart(2, ' ')).join(" | ");
+    outputStringArray.push(outputString);
+
+    if (x < 8) {
+      outputStringArray.push("==========================================");
+    }
+  }
+
+  outputStringArray.forEach(element => {
+    console.log(element);
+  });
+}
