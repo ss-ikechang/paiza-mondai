@@ -56,7 +56,7 @@ function step02() {
   // (A, B)のnumber回の繰り返し
   const arr = [...Array(number)].map(() => dataInBrackets);
   // ','で区切って結合
-  const outputString = arr.join(", ")
+  const outputString = arr.join(", ");
 
   console.log(outputString);
 }
@@ -72,7 +72,7 @@ function step03() {
   for (let x = 0;x < 9; x++) {
     const progressionFunc = function(element, index) {
         return ((index + 1) * (x + 1)).toString(10);
-    }
+    };
     // x の段の等比数列、文字列配列で生成
     numStrArray = [...Array(9)].map(progressionFunc);
     // 各数値文字列２桁で空白パディングし、|区切り文字で区切って連結する
