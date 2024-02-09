@@ -24,7 +24,7 @@ reader.on('line', (line) => {
 
 // 入力のストリームが終了すると呼ばれる
 reader.on('close', () => {
-  step04();
+  boss();
 });
 
 // 関数プログラミングで実装
@@ -133,3 +133,38 @@ function step04() {
   });
 }
 
+// boss();
+function boss() {
+  // 【出力形式を指定して出力】ペアの数値の入った表を罫線入りで出力 2 (paizaランク C 相当)
+  // https://paiza.jp/works/mondai/stdout_primer/stdout_primer__specific_format_boss
+
+  let outputStringArray = [];
+
+  // 入力行の解析
+  const array  = lines[0].split(" ");
+  // 1カラム目取得、データ個数
+  const numberOFRows    = parseInt(array[0], 10);
+  const numberOFColumns = parseInt(array[1], 10);
+  // (A, B)部  
+  // const datasSet = array.toSpliced(0, 1);
+  // 要素の１番目から最後まで抽出
+  const datasSet = array.slice(2);
+  // ( , ) をつける
+  const dataInBrackets = '(' + datasSet.map((element, index) => element.padStart(9, ' ') ).join(", ") + ')';
+
+  // (A, B)のnumber回の繰り返し
+  const arr = [...Array(numberOFColumns)].map(() => dataInBrackets);
+  // ','で区切って結合
+  const outputString = arr.join(" | ");
+
+  for (let x = 0;x < numberOFRows; x++) {
+    outputStringArray.push(outputString);
+    if (x < numberOFRows - 1) {
+      outputStringArray.push("=".repeat(outputString.length));
+    }
+  }
+
+  outputStringArray.forEach(element => {
+    console.log(element);
+  });
+}
