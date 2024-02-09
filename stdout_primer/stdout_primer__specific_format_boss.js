@@ -70,6 +70,11 @@ function step03() {
   let outputStringArray = [];
 
   for (let x = 0;x < 9; x++) {
+    // Functions declared within loops referencing an outer scoped variable may lead to confusing semantics.
+    // javascript - forループ内の関数作成をＮＧにする理由 - スタック・オーバーフロー
+    // https://ja.stackoverflow.com/questions/2252/for%E3%83%AB%E3%83%BC%E3%83%97%E5%86%85%E3%81%AE%E9%96%A2%E6%95%B0%E4%BD%9C%E6%88%90%E3%82%92%EF%BC%AE%EF%BC%A7%E3%81%AB%E3%81%99%E3%82%8B%E7%90%86%E7%94%B1
+    // javascript - Functions declared within loops referencing an outer scoped variable may lead to confusing semantics. What is wrong? - Stack Overflow
+    // https://stackoverflow.com/questions/46027262/functions-declared-within-loops-referencing-an-outer-scoped-variable-may-lead-to
     const progressionFunc = function(element, index) {
         return ((index + 1) * (x + 1)).toString(10);
     };
