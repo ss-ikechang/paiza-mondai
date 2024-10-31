@@ -10,8 +10,17 @@ var reader = require('readline').createInterface({
 reader.on('line', (line) => {
   lines.push(line);
 });
+
+// 入力のストリームが終了すると呼ばれる
 reader.on('close', () => {
-    lines.forEach(line => {
-        console.log(line);
-    });
+    // 先頭行の解析
+    let firstLineColumns   = lines[0].split(" ");
+    let dataRowsNumber     = firstLineColumns[0];   // 入力データ行数
+
+    // データ行の１行目から読み込み
+  for(let i = 1; i <= dataRowsNumber; i ++) {
+    // 入力バッファからデータ行を抽出
+    let line = lines[i];
+    console.log(line);
+  }
 });
