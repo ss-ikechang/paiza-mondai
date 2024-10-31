@@ -11,5 +11,7 @@ reader.on('line', (line) => {
   lines.push(line);
 });
 reader.on('close', () => {
-  console.log(lines[0]);
+  console.log('name: ikegami');
+  console.log('language: JavaScript, English');
+  console.log('hitokoto: よろしくお願いします!');
 });
