@@ -15,7 +15,7 @@ reader.on('line', (line) => {
 reader.on('close', () => {
     // 先頭行の解析
     let firstLineColumns   = lines[0].split(" ");
-    let dataRowsNumber     = firstLineColumns[0];   // 入力データ行数
+    let dataRowsNumber     = parseInt(firstLineColumns[0], 10);   // 入力データ行数
 
     // データ行の１行目から読み込み
   for(let i = 1; i <= dataRowsNumber; i ++) {
