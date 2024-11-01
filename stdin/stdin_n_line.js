@@ -1,3 +1,14 @@
+// 入力例1
+// 3
+// aaaaa
+// bbbbbb
+// cccc
+
+// 出力例1
+// aaaaa
+// bbbbbb
+// cccc
+
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
 // 自分の得意な言語で
@@ -18,9 +29,9 @@ reader.on('close', () => {
     let dataRowsNumber     = parseInt(firstLineColumns[0], 10);   // 入力データ行数
 
     // データ行の１行目から読み込み
-  for(let i = 1; i <= dataRowsNumber; i ++) {
-    // 入力バッファからデータ行を抽出
-    let line = lines[i];
-    console.log(line);
-  }
+    for(let i = 1; i <= dataRowsNumber; i ++) {
+      // 入力バッファからデータ行を抽出
+      let line = lines[i];
+      console.log(line);
+    }
 });
